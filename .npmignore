@@ -1,3 +1,4 @@
-doc
+docs
 node_modules
-.travis.yml
+.*
+Makefile

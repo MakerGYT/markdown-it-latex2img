@@ -1,6 +1,6 @@
 {
   "name": "markdown-it-latex2img",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "Latex plugin for markdown-it markdown parser.",
   "keywords": [
     "markdown-it",
@@ -11,22 +11,17 @@
   ],
   "main": "index.js",
   "scripts": {
-    "build": "browserify doc/browser.js -o doc/bundle.js",
-    "lint": "eslint . --fix"
+    "build": "make browserify",
+    "preview": "serve docs"
   },
   "devDependencies": {
     "browserify": "^16.5.1",
-    "eslint": "^6.8.0",
-    "eslint-config-prettier": "^6.3.0",
-    "eslint-plugin-prettier": "^3.1.2",
     "markdown-it": "^10.0.0",
-    "prettier": "^2.0.4"
+    "terser": "^4.6.11",
+    "serve": "^11.3.0"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/MakerGYT/markdown-it-latex2img.git"
-  },
-  "homepage": "https://github.com/MakerGYT/markdown-it-latex2img#readme",
+  "repository": "makergyt/markdown-it-latex2img",
+  "homepage": "https://makergyt.github.io/markdown-it-latex2img/",
   "author": "MakerGYT",
   "license": "MIT"
 }

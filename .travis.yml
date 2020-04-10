@@ -3,18 +3,9 @@ language: node_js
 node_js:
   - 10 # use nodejs v10 LTS
 cache: npm
-branches:
-  only:
-    - master # build master branch only
+# branches:
+#   only:
+#     - master # build master branch only
 
-script:
-  - npm run build
-
-deploy:
-  provider: pages
-  skip_cleanup: true
-  token: $GH_TOKEN
-  keep_history: true
-  local_dir: doc
-  on:
-    branch: master
+# script:
+#   - npm run pack
