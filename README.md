@@ -47,6 +47,12 @@ _Differences in browser._ If you load script directly into the page, without pac
   md.use(window.markdownitLatex2img);
 </script>
 ```
+### Options(optional)
+|Property | Type | Default |Required | Remarks |
+|:--|:--|:--|:--|:--|
+|server|String| https://math.now.sh| true |?from=block/inline=inline |
+|style | String |`display:block;margin: 0 auto;`(block) | false | commonly use `filter: opacity(75%);transform:scale(0.75);` to fit the body font color and size |
+
 ### Convention
 Markup is based on [pandoc](https://pandoc.org/MANUAL.html#math) definition.
 [Mathjax](https://docs.mathjax.org/en/latest/basic/mathematics.html#tex-and-latex-input) pointed out

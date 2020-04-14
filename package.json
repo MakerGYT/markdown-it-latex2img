@@ -1,6 +1,6 @@
 {
   "name": "markdown-it-latex2img",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Latex plugin for markdown-it markdown parser.",
   "keywords": [
     "markdown-it",
@@ -12,7 +12,7 @@
   "main": "index.js",
   "scripts": {
     "build": "make browserify",
-    "preview": "serve docs"
+    "preview": "npm run build && serve docs"
   },
   "devDependencies": {
     "browserify": "^16.5.1",

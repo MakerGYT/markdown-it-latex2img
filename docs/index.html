@@ -47,6 +47,12 @@
 <body>
 	<div class="main">
 		<textarea id="input" type="textarea" rows=15, cols=80 spellcheck="false">
+## 0 用法
+```js
+var md = window.markdownit();
+md.use(window.markdownitLatex2img, {style: "filter: opacity(75%);transform:scale(0.75);"});
+md.render(input.value);
+```
 ## 1 数学公式
 ### 1.1 内联公式
 **开头的`$`必须在其右边紧跟一个非空格字符，而结尾的`$`必须在其左边紧接一个非空格字符，并且不能紧跟一个数字。**
@@ -132,11 +138,12 @@ $$\ce{{CO}_{2} + 2{H}_{2}{O} ->T[光、叶绿体][酶] ({CH}_{2}O) + {H}_{2}{O} 
 		<button id="button">Render</button>
 		<article id="output" class="markdown-body"></article>
 	</div>
-	<script src="https://cdn.jsdelivr.net/npm/markdown-it-latex2img@0.0.3/dist/markdown-it-latex2img.min.js" crossorigin="anonymous"></script>
+	<!-- <script src="../dist/markdown-it-latex2img.js"></script> -->
+	<script src="https://cdn.jsdelivr.net/npm/markdown-it-latex2img@0.0.4/dist/markdown-it-latex2img.min.js" crossorigin="anonymous"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/markdown-it/10.0.0/markdown-it.min.js" integrity="sha256-YASERpEeN8gRNr/Fy4Km34WGFqIq1h6HkJMAQnVHlhk=" crossorigin="anonymous"></script>
 	<script>
 		var md = window.markdownit();
-		md.use(window.markdownitLatex2img);
+		md.use(window.markdownitLatex2img, {style: "filter: opacity(75%);transform:scale(0.75);"});
 
 		var input = document.getElementById("input"),
 			output = document.getElementById("output"),

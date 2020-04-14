@@ -173,13 +173,14 @@ function math_block(state, start, end, silent) {
 module.exports = (md, options) => {
   options = options || {};
   options.server = options.server || "https://math.now.sh";
+  options.style = options.style || "";
   const purifiedURL = (latex) => {
     return encodeURIComponent(latex).replace("(", "%28").replace(")", "%29");
   };
 
   let Inline = (latex) => {
     try {
-      return `<img src="${options.server}?inline=${purifiedURL(latex)}"/>`;
+      return `<img src="${options.server}?inline=${purifiedURL(latex)}" style="${options.style}"/>`;
     } catch (error) {
       console.error(error);
       return latex;
@@ -190,7 +191,7 @@ module.exports = (md, options) => {
     try {
       return `<img src="${options.server}?from=${purifiedURL(
         latex
-      )}" style="display:block;margin: 0 auto;"/><br>`;
+      )}" style="display:block;margin: 0 auto;${options.style}"/><br>`;
     } catch (error) {
       console.error(error);
       return latex;
