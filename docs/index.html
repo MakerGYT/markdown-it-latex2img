@@ -1,52 +1,53 @@
 <!DOCTYPE html>
 
 <head>
-	<title>Math API</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/github-markdown-css/latest/github-markdown.css" />
-	<style>
+  <title>Math API</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/github-markdown-css/latest/github-markdown.css" />
+  <style>
     .markdown-body {
-        box-sizing: border-box;
-        min-width: 200px;
-        max-width: 980px;
-        margin: 0 auto;
-        padding: 45px;
+      box-sizing: border-box;
+      min-width: 200px;
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 45px;
     }
- 
+
     @media (max-width: 767px) {
-			.markdown-body {
-					padding: 15px;
-			}
-			#input {
-				width: 100%;
-			}
+      .markdown-body {
+        padding: 15px;
+      }
+
+      #input {
+        width: 100%;
+      }
     }
 
-		.main {
-			max-width: 800px;
-			margin: 0 auto 80px auto;
-		}
+    .main {
+      max-width: 800px;
+      margin: 0 auto 80px auto;
+    }
 
-		#input {
-			display: block;
-			font-size: 12pt;
-			padding-top: 0.5em;
-			padding-left: 0.1em;
-			font-family: monospace;
-		}
+    #input {
+      display: block;
+      font-size: 12pt;
+      padding-top: 0.5em;
+      padding-left: 0.1em;
+      font-family: monospace;
+    }
 
-		#button {
-			margin-top: 1em;
-			width: 120px;
-			height: 50px;
-			font-size: 14pt;
-		}
-	</style>
+    #button {
+      margin-top: 1em;
+      width: 120px;
+      height: 50px;
+      font-size: 14pt;
+    }
+  </style>
 </head>
 
 <body>
-	<div class="main">
-		<textarea id="input" type="textarea" rows=15, cols=80 spellcheck="false">
+  <div class="main">
+    <textarea id="input" type="textarea" rows=15, cols=80 spellcheck="false">
 ## 0 用法
 ```js
 var md = window.markdownit();
@@ -134,24 +135,44 @@ $$\ce{{CO}_{2} + 2{H}_{2}{O} ->T[光、叶绿体][酶] ({CH}_{2}O) + {H}_{2}{O} 
 
 ## 5 语法参考
 [MathJax basic tutorial and quick reference](https://math.meta.stackexchange.com/questions/5020/mathjax-basic-tutorial-and-quick-reference)
-		</textarea>
-		<button id="button">Render</button>
-		<article id="output" class="markdown-body"></article>
-	</div>
-	<!-- <script src="../dist/markdown-it-latex2img.js"></script> -->
-	<script src="https://cdn.jsdelivr.net/npm/markdown-it-latex2img@0.0.4/dist/markdown-it-latex2img.min.js" crossorigin="anonymous"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/markdown-it/10.0.0/markdown-it.min.js" integrity="sha256-YASERpEeN8gRNr/Fy4Km34WGFqIq1h6HkJMAQnVHlhk=" crossorigin="anonymous"></script>
-	<script>
-		var md = window.markdownit();
-		md.use(window.markdownitLatex2img, {style: "filter: opacity(75%);transform:scale(0.75);"});
 
-		var input = document.getElementById("input"),
-			output = document.getElementById("output"),
-			button = document.getElementById("button");
+<div style="text-align:right;">
+  <p>
+    更新日期: 2020年6月1日
+  </p>
+  <p >
+    © MakerGYT 2020
+  </p>
+</div>
+    </textarea>
+    <form>
+      <input type="checkbox" id="parse">解析html内容
+    </form>
+    <button id="button">Render</button>
 
-		button.addEventListener("click", () => {
-			var result = md.render(input.value);
-			output.innerHTML = result;
-		});
-	</script>
+    <article id="output" class="markdown-body"></article>
+  </div>
+  <!-- <script src="../dist/markdown-it-latex2img.js"></script> -->
+  <script src="https://cdn.jsdelivr.net/npm/markdown-it-latex2img@0.0.4/dist/markdown-it-latex2img.min.js"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/markdown-it/10.0.0/markdown-it.min.js"
+    integrity="sha256-YASERpEeN8gRNr/Fy4Km34WGFqIq1h6HkJMAQnVHlhk=" crossorigin="anonymous"></script>
+  <script>
+
+
+    var input = document.getElementById("input"),
+      output = document.getElementById("output"),
+      button = document.getElementById("button");
+
+
+    button.addEventListener("click", () => {
+      var md = window.markdownit({
+        html: document.getElementById("parse").checked
+      });
+      md.use(window.markdownitLatex2img, { style: "filter: opacity(75%);transform:scale(0.75);" });
+
+      var result = md.render(input.value);
+      output.innerHTML = result;
+    });
+  </script>
 </body>
