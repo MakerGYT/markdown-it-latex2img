@@ -180,7 +180,7 @@ module.exports = (md, options) => {
 
   let Inline = (latex) => {
     try {
-      return `<img src="${options.server}?inline=${purifiedURL(latex)}" style="${options.style}"/>`;
+      return `<img src="${options.server}?inline=${purifiedURL(latex)}" style="${options.style}display:inline-block;margin: 0;"/>`;
     } catch (error) {
       console.error(error);
       return latex;

@@ -2,7 +2,7 @@
 [![Build Status](https://travis-ci.com/MakerGYT/markdown-it-latex2img.svg?branch=master)](https://travis-ci.com/MakerGYT/markdown-it-latex2img)
 [![NPM version](https://img.shields.io/npm/v/markdown-it-latex2img.svg?style=flat)](https://npmjs.com/package/markdown-it-latex2img)
 
-> LaTex plugin for [markdown-it](https://github.com/markdown-it/markdown-it) markdown parser,rendered with `<img>`
+> LaTex plugin for [markdown-it](https://github.com/markdown-it/markdown-it) markdown parser,Server side MathJax Renderer.
 
 ## Background
 ### Related
@@ -22,6 +22,13 @@ Need to include the [KaTeX stylesheet](https://cdnjs.cloudflare.com/ajax/libs/Ka
 - Support inline and block formulas
 - Rendering results support multi-end use, such as WeChat Mini Program
 
+## Sample
+[Demo](https://makergyt.github.io/markdown-it-latex2img/)
+
+Screenshot:
+
+![](https://imgkr.cn-bj.ufileos.com/307ef213-27ea-4908-a060-8616c2039dad.png)
+
 ## Install
 ### Node.js:
 ```bash
@@ -30,7 +37,7 @@ npm install markdown-it-latex2img --save
 ### Browser (CDN):
 - [jsDeliver CDN](https://www.jsdelivr.com/package/npm/markdown-it-latex2img)
 
-## Use
+## Usage
 ### Node.js
 ```js
 const md = require('markdown-it')()
@@ -41,19 +48,47 @@ md.render(`$\\frac {a+1}{b+2}$`) //JavaScript strings require double backslashes
 _Differences in browser._ If you load script directly into the page, without package system, module will add itself globally as `window.markdownitLatex2img`.
 ```html
 <script src="https://cdn.jsdelivr.net/npm/markdown-it-latex2img@latest/dist/markdown-it-latex2img.min.js" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/markdown-it/10.0.0/markdown-it.min.js" integrity="sha256-YASERpEeN8gRNr/Fy4Km34WGFqIq1h6HkJMAQnVHlhk=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/markdown-it@11.0.0/dist/markdown-it.min.js" crossorigin="anonymous"></script>
 <script>
   var md = window.markdownit();
   md.use(window.markdownitLatex2img);
 </script>
 ```
-### Options(optional)
+
+### Hexo
+`WARNING: No front-end scripts and other Math plugins are required. Remove them ALL before using this plugin.Please use official plugin hexo-renderer-markdown-it as Renderer.`
+
+1. Install
+```sh
+npm i hexo-renderer-markdown-it --save
+npm i markdown-it-latex2img --save
+```
+2. Config
+```yml
+# _config.yml
+markdown:
+  plugins:
+    - markdown-it-latex2img
+```
+Default will load mathjax plugin EVERY PAGE during rendering,Does not reduce page speed after generated.Later will support on-demand rendering to improve rendering speed
+
+## Options(optional)
 |Property | Type | Default |Required | Remarks |
 |:--|:--|:--|:--|:--|
 |server|String| https://math.now.sh| true |?from=block/inline=inline |
 |style | String |`display:block;margin: 0 auto;`(block) | false | commonly use `filter: opacity(75%);transform:scale(0.75);` to fit the body font color and size |
 
-### Convention
+If you want to customize options in hexo,please do as follows:
+```yml
+# _config.yml
+markdown:
+  plugins:
+    - name: markdown-it-latex2img
+      options:
+        style: 'filter: opacity(90%);transform:scale(0.85);'
+```
+
+## Convention
 Markup is based on [pandoc](https://pandoc.org/MANUAL.html#math) definition.
 [Mathjax](https://docs.mathjax.org/en/latest/basic/mathematics.html#tex-and-latex-input) pointed out
 > The default math delimiters are $$...$$ and \[...\] for displayed mathematics, and \(...\) for in-line mathematics.Note in particular that the $...$ in-line delimiters are not used by default.That is because dollar signs appear too often in non-mathematical settings, which could cause some text to be treated as mathematics unexpectedly.
@@ -72,12 +107,6 @@ e^x=\lim_{n\to\infty} \left( 1+\frac{x}{n} \right)^n
 }
 $$
 ```
-## Sample
-[Demo](https://makergyt.github.io/markdown-it-latex2img/)
-
-Screenshot:
-
-![](https://imgkr.cn-bj.ufileos.com/307ef213-27ea-4908-a060-8616c2039dad.png)
 
 ## Dependencies
 - [uetchy/math-api](https://github.com/uetchy/math-api)
