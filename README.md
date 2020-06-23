@@ -76,7 +76,7 @@ Default will load mathjax plugin EVERY PAGE during rendering,Does not reduce pag
 |Property | Type | Default |Required | Remarks |
 |:--|:--|:--|:--|:--|
 |server|String| https://math.now.sh| true |?from=block/inline=inline |
-|style | String |`display:block;margin: 0 auto;`(block) | false | commonly use `filter: opacity(75%);transform:scale(0.75);` to fit the body font color and size |
+|style | String || false | commonly use `filter: opacity(75%);transform:scale(0.75);text-align:center;` to fit the body font color and size |
 
 If you want to customize options in hexo,please do as follows:
 ```yml
@@ -85,7 +85,7 @@ markdown:
   plugins:
     - name: markdown-it-latex2img
       options:
-        style: 'filter: opacity(90%);transform:scale(0.85);'
+        style: 'filter: opacity(90%);transform:scale(0.85);text-align:center;'
 ```
 
 ## Convention

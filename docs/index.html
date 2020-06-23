@@ -60,11 +60,18 @@
 
 <body>
   <div class="main">
+    <h2>Markdown-it-latex2img示例</h2>
+    <p>
+      <a href="https://npmjs.com/package/markdown-it-latex2img"><img src="https://img.shields.io/npm/v/markdown-it-latex2img.svg?style=flat" alt="NPM version"></a>
+      <a href="https://github.com/MakerGYT/markdown-it-latex2img"><img src="https://img.shields.io/github/stars/MakerGYT/markdown-it-latex2img?style=social" alt="Github stars"></a>
+    </p>      
     <textarea id="input" type="textarea" rows=15, cols=80 spellcheck="false">
 ## 0 用法
 ```js
 var md = window.markdownit();
-md.use(window.markdownitLatex2img, {style: "filter: opacity(75%);transform:scale(0.75);"});
+md.use(window.markdownitLatex2img, 
+  {style: "filter: opacity(75%);transform:scale(0.75);text-align:center;"} //可选
+);
 md.render(input.value);
 ```
 ## 1 数学公式
@@ -171,9 +178,9 @@ $$\ce{{CO}_{2} + 2{H}_{2}{O} ->T[光、叶绿体][酶] ({CH}_{2}O) + {H}_{2}{O} 
 
     <article id="output" class="markdown-body"></article>
   </div>
-  <!-- <script src="../dist/markdown-it-latex2img.js"></script> -->
-  <script src="https://cdn.jsdelivr.net/npm/markdown-it-latex2img@0.0.5/dist/markdown-it-latex2img.min.js"
-    crossorigin="anonymous"></script>
+  <script src="../dist/markdown-it-latex2img.js"></script>
+  <!-- <script src="https://cdn.jsdelivr.net/npm/markdown-it-latex2img@0.0.5/dist/markdown-it-latex2img.min.js"
+    crossorigin="anonymous"></script> -->
   <script src="https://cdn.jsdelivr.net/npm/markdown-it@11.0.0/dist/markdown-it.min.js" crossorigin="anonymous"></script>
   
   <script>
@@ -185,7 +192,7 @@ $$\ce{{CO}_{2} + 2{H}_{2}{O} ->T[光、叶绿体][酶] ({CH}_{2}O) + {H}_{2}{O} 
       var md = window.markdownit({
         html: document.getElementById("parse").checked
       });
-      md.use(window.markdownitLatex2img, { style: "filter: opacity(75%);transform:scale(0.75);" });
+      md.use(window.markdownitLatex2img, { style: "filter: opacity(75%);transform:scale(0.75);text-align:center" });
 
       var result = md.render(input.value);
       output.innerHTML = result;

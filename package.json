@@ -1,6 +1,6 @@
 {
   "name": "markdown-it-latex2img",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Latex plugin for markdown-it markdown parser.",
   "keywords": [
     "markdown-it",
@@ -9,7 +9,8 @@
     "LaTex",
     "math",
     "mathjax",
-    "hexo"
+    "hexo",
+    "katex"
   ],
   "main": "index.js",
   "scripts": {

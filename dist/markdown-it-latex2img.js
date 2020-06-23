@@ -190,9 +190,9 @@ module.exports = (md, options) => {
 
   let Block = (latex) => {
     try {
-      return `<img src="${options.server}?from=${purifiedURL(
+      return `<p style="${options.style}"><img src="${options.server}?from=${purifiedURL(
         latex
-      )}" style="display:block;margin: 0 auto;${options.style}"/><br>`;
+      )}" /></p>`;
     } catch (error) {
       console.error(error);
       return latex;
