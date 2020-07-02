@@ -1,8 +1,10 @@
 # Markdown-it-latex2img
 [![Build Status](https://travis-ci.com/MakerGYT/markdown-it-latex2img.svg?branch=master)](https://travis-ci.com/MakerGYT/markdown-it-latex2img)
 [![NPM version](https://img.shields.io/npm/v/markdown-it-latex2img.svg?style=flat)](https://npmjs.com/package/markdown-it-latex2img)
+[![npm](https://img.shields.io/npm/dw/markdown-it-latex2img)](https://www.npmjs.com/package/markdown-it-latex2img)
+[![GitHub stars](https://img.shields.io/github/stars/MakerGYT/markdown-it-latex2img?style=social)](https://github.com/MakerGYT/markdown-it-latex2img/stargazers)
 
-> LaTex plugin for [markdown-it](https://github.com/markdown-it/markdown-it) markdown parser,Server side MathJax Renderer.
+> LaTex plugin for [markdown-it](https://github.com/markdown-it/markdown-it) markdown parser, Server side MathJax Renderer.
 
 ## Background
 ### Related
@@ -25,7 +27,7 @@ Need to include the [KaTeX stylesheet](https://cdnjs.cloudflare.com/ajax/libs/Ka
 ## Sample
 [Demo](https://makergyt.github.io/markdown-it-latex2img/)
 
-Screenshot:
+### Screenshot:
 
 ![](https://imgkr.cn-bj.ufileos.com/307ef213-27ea-4908-a060-8616c2039dad.png)
 
@@ -56,7 +58,7 @@ _Differences in browser._ If you load script directly into the page, without pac
 ```
 
 ### Hexo
-`WARNING: No front-end scripts and other Math plugins are required. Remove them ALL before using this plugin.Please use official plugin hexo-renderer-markdown-it as Renderer.`
+`WARNING: No front-end scripts and other Math plugins are required. Remove them ALL before using this plugin.Please use official plugin hexo-renderer-markdown-it(plus) as Renderer.`
 
 1. Install
 ```sh
@@ -110,6 +112,9 @@ $$
 
 ## Dependencies
 - [uetchy/math-api](https://github.com/uetchy/math-api)
+
+## Case
+- [Hexo blog](https://blog.makergyt.com/typography_en/)
 
 ## License
 [MIT](https://github.com/MakerGYT/markdown-it-latex2img/blob/master/LICENSE) © MakerGYT
